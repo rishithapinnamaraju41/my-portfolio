@@ -448,6 +448,60 @@ footer {
 }
 
 .hidden { display: none; }
+.contact-form {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #080d19;
+    color: #f8fafc;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 2px #a78bfa20;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #64748b;
+}
+
+.contact-form .btn {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    font-family: inherit;
+}
 
 @media(max-width:850px) {
     .hero-content, .about-grid { grid-template-columns: 1fr; }
@@ -801,70 +855,122 @@ Enthusiastic AI & ML graduate passionate about artificial intelligence, machine 
 
 <section id="contact">
 <div class="container">
+
     <div class="section-title">
         <h2>Get In <span class="gradient">Touch</span></h2>
         <div class="line"></div>
-        <p>Let's connect and explore opportunities.</p>
+        <p>Have an opportunity or want to work together? Send me a message.</p>
     </div>
 
     <div class="contact-box">
-        <h2>Have an Opportunity?</h2>
+
+        <h2>Send Me an Enquiry</h2>
+
         <p>
-            I am open to entry-level software development opportunities,
-            collaborations and learning experiences.
-            Feel free to contact me.
+            I am open to software development opportunities,
+            collaborations, internships and learning experiences.
         </p>
 
-        <a href="mailto:yourmail@gmail.com" class="btn primary">
-            <i class="fas fa-envelope"></i> Contact Me
-        </a>
+        <form
+            action="https://formspree.io/f/mqpezrdd"
+            method="POST"
+            class="contact-form"
+        >
 
-        <div class="socials" style="justify-content:center">
-            <a href="https://github.com/YOUR_USERNAME" target="_blank">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="email">Your Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="What is this regarding?"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="message">Message</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Write your message here..."
+                    required
+                ></textarea>
+            </div>
+
+
+            <input
+                type="hidden"
+                name="_subject"
+                value="New Portfolio Enquiry"
+            >
+
+
+            <button type="submit" class="btn primary">
+                <i class="fas fa-paper-plane"></i>
+                Send Enquiry
+            </button>
+
+        </form>
+
+
+        <div class="socials" style="justify-content:center; margin-top:25px;">
+
+            <a
+                href="https://github.com/rishithapinnamaraju41"
+                target="_blank"
+                aria-label="GitHub"
+            >
                 <i class="fab fa-github"></i>
             </a>
-            <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank">
+
+            <a
+                href="https://linkedin.com/in/rishithapinnamaraju-00ba48348"
+                target="_blank"
+                aria-label="LinkedIn"
+            >
                 <i class="fab fa-linkedin"></i>
             </a>
+
+            <a
+                href="mailto:rishithapinnamaraju4@gmail.com"
+                aria-label="Email"
+            >
+                <i class="fas fa-envelope"></i>
+            </a>
+
         </div>
+
     </div>
 </div>
 </section>
-
-<footer>
-    <p>© 2026 Your Name. Designed & Developed with ❤️</p>
-    <p>Building ideas into reality, one line of code at a time.</p>
-</footer>
-
-<script>
-function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("show");
-}
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        document.getElementById("navLinks").classList.remove("show");
-    });
-});
-
-function filterProjects(category, button) {
-    document.querySelectorAll(".filter-btn").forEach(btn => {
-        btn.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
-    document.querySelectorAll(".project-card").forEach(card => {
-        if (category === "all" ||
-            card.dataset.category === category) {
-            card.classList.remove("hidden");
-        } else {
-            card.classList.add("hidden");
-        }
-    });
-}
-</script>
-
-</body>
-</html>
-   
